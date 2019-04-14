@@ -3,13 +3,9 @@ package com.cm.controller;
 import com.cm.entity.User;
 import com.cm.service.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.huaban.analysis.jieba.JiebaSegmenter;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 @CrossOrigin(origins = "*",maxAge = 3600)
@@ -118,7 +112,7 @@ public class TestController {
             model.addAttribute("message", "账号密码不正确");
             return "index";
         }
-        return "test";
+        return "success";
     }
 
 //    shiro已经帮我们验证了，所以我们只需要写基本业务逻辑就可以，不需要再写权限验证代码了

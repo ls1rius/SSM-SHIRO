@@ -6,5 +6,4 @@ public interface IUserService {
 
     User selectUser(long userId);
 
-    User findUserByName(String name);
 }

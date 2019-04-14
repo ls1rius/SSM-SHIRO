@@ -4,6 +4,7 @@ import com.cm.entity.User;
 import com.cm.service.ShiroService;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -37,12 +38,10 @@ public class LoginController {
             return "login";
         }
 
-
         //主体,当前状态为没有认证的状态“未认证”
         Subject subject = SecurityUtils.getSubject();
         // 登录后存放进shiro token
         UsernamePasswordToken token=new UsernamePasswordToken(username,password);
-        User user;
         //登录方法（认证是否通过）
         //使用subject调用securityManager,安全管理器调用Realm
         try {
@@ -51,17 +50,19 @@ public class LoginController {
             System.out.println("========================================");
             System.out.println("1、进入认证方法");
             subject.login(token);
-            user = (User)subject.getPrincipal();
+            User user = (User)subject.getPrincipal();
             session.setAttribute("user",subject);
             model.addAttribute("message", "登录完成");
             System.out.println("登录完成");
         } catch (UnknownAccountException e) {
             model.addAttribute("message", "账号密码不正确");
-            return "index";
+            return "fail";
+        } catch (IncorrectCredentialsException e ) {
+            model.addAttribute("message", "账号密码不正确");
+            return "fail";
         }
 
-
-        return "test";
+        return "success";
     }
 
     @RequestMapping("/check")

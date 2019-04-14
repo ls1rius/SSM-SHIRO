@@ -20,7 +20,6 @@ public class User implements Serializable {
     private int id;
     private String username;
     private String password;
-    private String salt;
 
     public int getId() {
         return id;
@@ -46,12 +45,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getSalt() {
-        return salt;
+    public String toString(){
+        return new String("id:" + this.id + " username:" + this.username + " password:" + this.password);
     }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
 }

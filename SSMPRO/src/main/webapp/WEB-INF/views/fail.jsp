@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-
-<h2>你没有查看的权利</h2>
+${message}
+<a href="login">返回</a>
 </body>
 </html>

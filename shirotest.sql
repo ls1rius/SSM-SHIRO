@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 13/04/2019 22:03:37
+ Date: 14/04/2019 17:20:35
 */
 
 SET NAMES utf8mb4;
@@ -62,7 +62,7 @@ COMMIT;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `account` varchar(20) NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

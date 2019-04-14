@@ -6,6 +6,4 @@ public interface IUserDao {
 
     User selectUser(long id);
 
-    User findUserByName(String name);
-
 }

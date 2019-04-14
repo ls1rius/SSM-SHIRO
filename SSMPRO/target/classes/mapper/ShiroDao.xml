@@ -4,7 +4,7 @@
 <mapper namespace="com.cm.dao.ShiroDao">
     <select id="getUserByUserName" resultType="com.cm.entity.User">
         select * FROM user
-        WHERE account= #{0}
+        WHERE username= #{0}
     </select>
 
     <select id="getUserRoleByUserId" resultType="int">

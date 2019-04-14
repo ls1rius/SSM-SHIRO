@@ -16,8 +16,5 @@ public class UserServiceImpl implements IUserService {
     public User selectUser(long userId) {
         return this.userDao.selectUser(userId);
     }
-    public User findUserByName(String name) {
-        return this.userDao.findUserByName(name);
-    }
 
 }

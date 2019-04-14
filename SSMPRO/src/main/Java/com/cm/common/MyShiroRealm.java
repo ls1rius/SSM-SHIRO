@@ -40,6 +40,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 //      System.out.println("subject"+_user.getUsername());
 
 
+        System.out.println("------>" + user.toString());
 
 
         return null;
@@ -52,7 +53,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         System.out.println("1:"+token.getUsername());
         User user = shiroService.getUserByUserName(token.getUsername());
-        System.out.println("2");
+        System.out.println("======>" + user.toString());
         if(user==null){
             return null;
         }
